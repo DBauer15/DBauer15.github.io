@@ -36,7 +36,7 @@ export default {
     left: 0; 
     width: 100%; 
     padding: 0;
-    background-color: rgba(245, 245, 245, 0.5);
+    background-color: rgba(var(--background), 0.5);
     backdrop-filter: blur(30px);
 }
 

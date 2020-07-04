@@ -19,13 +19,26 @@ export default {
 </script>
 
 <style>
-:root {
-  --background: rgb(245, 245, 245);
-  --text-on-bg: rgb(15, 14, 18);
-  --text-on-accent: rgb(15, 14, 18);
-  --accent: rgb(236, 167, 76);
-  --accent: rgb(238, 156, 49);
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: rgb(245, 245, 245);
+    --text-on-bg: rgb(15, 14, 18);
+    --text-on-accent: rgb(15, 14, 18);
+    --accent: rgb(236, 167, 76);
+    --accent: rgb(238, 156, 49);
+  }
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(15, 14, 18);
+    --text-on-bg: rgb(245, 245, 245);
+    --text-on-accent: rgb(15, 14, 18);
+    --accent: rgb(236, 167, 76);
+    --accent: rgb(238, 156, 49);
+  }
+}
+
 
 body {
   background-color: var(--background);
@@ -42,7 +55,7 @@ body {
 }
 
 a {
-    color: #000;
+    color: var(--text-on-bg);
 }
 
 .accent {
