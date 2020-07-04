@@ -5,8 +5,8 @@
           <img src="/img/portrait.jpg" width="175px">
     </div>
     <div style="grid-area:title; text-align:left;">
-      <div style="font-size:2.2rem; font-weight: 600;">David Bauer</div>
-      <div style="font-size:1.8rem; color: var(--accent);">Researcher at VIDI, University of California at Davis</div>
+      <div class="name-label">David Bauer</div>
+      <div class="name-label-sub">Researcher at VIDI, University of California at Davis</div>
     </div>
     <div class="body-font" style="grid-area:about; text-align:left;" v-html="CV.bio">
     </div>
@@ -40,6 +40,16 @@ export default {
 <style>
 img {
   border-radius: 120px;
+}
+
+.name-label {
+  font-size:2.2rem; 
+  font-weight: 600;
+}
+
+.name-label-sub {
+  font-size:1.8rem; 
+  color: var(--accent);
 }
 
 .container {
@@ -76,5 +86,29 @@ img {
   margin-bottom: 15px;
   margin-top: 35px;
   padding: 15px;
+}
+
+@media (max-width: 700px) {
+  .name-label {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .name-label-sub {
+    font-size:1.2rem; 
+  }
+  .container {
+    grid-template-rows: 1fr auto auto 0 auto;
+    grid-gap: 20px 15px;
+  }
+  .cv-section {
+    grid-template-areas: "title title";
+  }
+  .cv-section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 15px;
+    margin-top: 35px;
+    padding: 0px;
+  }
 }
 </style>

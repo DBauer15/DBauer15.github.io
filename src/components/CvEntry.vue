@@ -54,4 +54,24 @@ export default {
     padding: 15px 0 15px 15px;
     text-align: left;
 }
+
+@media (max-width: 700px) {
+    .cv-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "content"
+        "timespan"
+        ;
+    }
+
+    .timespan {
+        text-align: left;
+        padding: 5px 15px 25px 15px;
+    }
+
+    .content {
+        padding: 25px 15px 5px 15px;
+    }
+}
 </style>

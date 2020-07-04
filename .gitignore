@@ -57,5 +57,6 @@ pnpm-debug.log*
 *.sw?
 
 dist/
+dist
 
 old
