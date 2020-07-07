@@ -1,135 +1,52 @@
 <template>
-    <div>
-        <div class="title-bar">
-            <div class="title-box" style="float:left;">
-                <div>DAVID</div>
-                <div>BAUER</div>
-            </div>
-            
-            <div class="info-box desktop-only" style="float:left">
-                <div class="accent info-box-title">Research</div>
-                <div>Immerserive Visualization</div>
-                <div>Computer Graphics</div>
-                <div>Biomedical Data</div>              
-            </div>
-
-            <div class="info-box" style="float:right; text-align:right;">
-                <div class="accent info-box-title">Contact</div>
-                <div><a href="https://github.com/DBauer15" target="_blank">GitHub</a></div>
-                <div>davbauer at ucdavis.edu</div>                
-            </div>
+    <div class="title-container">
+        <div class="text-primary text-h1 desktop-only" style="grid-area: name">
+            <a href="/">David Bauer</a>
         </div>
-        <div class="clearfix"></div>
+        <div class="text-primary text-h1 mobile-only" style="grid-area: name">
+            <a href="/">DB</a>
+        </div>
+        <Navigation style="grid-area: nav; visibility: hidden;"/>
     </div>
 </template>
 
 <script>
-export default {
+import Navigation from './Navigation'
 
+export default {
+    components: {
+        Navigation
+    }
 }
 </script>
 
 <style>
 
+.title-container {
+    display: grid;
+    grid-template-columns: 1fr 0.25fr 0.75fr;
+    grid-template-areas: "name . nav";
 
-@media (max-width: 700px) {
-    .title-bar {
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        padding: 0;
-        background-color: var(--background-translucent);
-        backdrop-filter: blur(30px);
-    }
+    padding: 50px 0;
 
-    .title-box {
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.05rem;
-        text-align: center;
-        color: var(--text-on-accent);
-
-        margin: 12px;
-        padding-top: 5px;
-        height: 45px;
-        width: 50px;
-
-        background-color: var(--accent);
-        border: 3px solid var(--accent);
-    }
-
-    .info-box {
-        display: block;
-        font-size: 0.8rem;
-        font-weight: lighter;
-        text-align: left;
-        
-        margin: 12px;
-        height: 45px;
-        width: 200px;
-
-        background-color: transparent;
-    }
-
-    .info-box-title {
-        font-size: 0.9rem !important;
-        margin-bottom: 8px;
-    }
+    background-color: var(--background-translucent);
+    backdrop-filter: blur(8px);
 }
 
-
-@media (max-width: 400px) {
-    .info-box {
-        display: none !important;
-    }
+.title-container >  div {
+    padding: 5px 0;
 }
 
-@media (min-width: 701px) {
-    .title-bar {
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        padding: 0;
-        background-color: var(--background-translucent);
-        backdrop-filter: blur(30px);
-    }
-
-    .title-box {
-        font-size: 1.3rem;
-        font-weight: 600;
-        letter-spacing: 0.05rem;
-        text-align: center;
-        color: var(--text-on-accent);
-
-
-        margin: 25px 5px 25px 25px;
-        padding-top: 5px;
-        height: 95px;
-        width: 100px;
-
-        background-color: var(--accent);
-        border: 3px solid var(--accent);
-    }
-
-    .info-box {
-        font-size: 0.9rem;
-        font-weight: lighter;
-        text-align: left;
-
-        margin: 25px;
-        
-        height: 95px;
-        width: 200px;
-
-        background-color: transparent;
-    }
-
-    .info-box-title {
-        margin-bottom: 15px;
-    }
+.title-container >  div > a{
+    text-decoration: none;
+    color: inherit;
 }
 
-
+@media (max-width: 850px) {
+    .title-container {
+        grid-template-columns: 1fr 0.75fr;
+        grid-template-areas: "name nav";
+        padding: 15px 0 0 0;
+    }
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <Title/>
-    <Home class="home"/>
+  <div id="app" class="app-container">
+      <Title style="grid-area: title; position: sticky; top: 0;"/>
+      <Home style="grid-area: content"/>
   </div>
 </template>
 
@@ -19,80 +19,118 @@ export default {
 </script>
 
 <style>
-
 @media (prefers-color-scheme: light) {
   :root {
-    --background: rgb(245, 245, 245);
-    --background-translucent: rgba(245, 245, 245, 0.85);
-    --text-on-bg: rgb(15, 14, 18);
-    --text-on-accent: rgb(15, 14, 18);
-    --accent: rgb(236, 167, 76);
-    --accent: rgb(238, 156, 49);
+    --text-primary: #33271A;
+    --text-secondary: #664D34;
+    --background: #FFF6E6;
+    --background-translucent: rgba(255, 246, 230, 0.95);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgb(15, 14, 18);
-    --background-translucent: rgba(15, 14, 18, 0.85);
-    --text-on-bg: rgb(245, 245, 245);
-    --text-on-accent: rgb(15, 14, 18);
-    --accent: rgb(236, 167, 76);
-    --accent: rgb(238, 156, 49);
-  }
-}
-
-@media (max-width: 700px) {
-  .desktop-only {
-    display: none;
-  }
-  .mobile-only {
-    display: block;
-  }
-  .home {
-    margin-top: 120px;
-  }
-}
-
-@media (min-width: 701px) {
-  .desktop-only {
-    display: block;
-  }
-  .mobile-only {
-    display: none;
-  }
-  .home {
-    margin-top: 200px;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --background: #2E343C;
+    --background-translucent: rgba(46, 52, 60, 0.85);
   }
 }
 
 
 body {
+  margin: 0;
   background-color: var(--background);
 }
 
 #app {
-  font-family: 'Montserrat', sans-serif; 
-  box-sizing: border-box;
+  font-family: 'Futura', 'Lato', sans-serif; 
   font-size: 14.4px;
+  font-weight: 400;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-on-bg);
-  margin-top: 60px;
+}
+
+
+.app-container {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+  grid-template-areas: 
+  ". title ."
+  ". content .";
 }
 
 a {
-    color: var(--text-on-bg);
+    color: var(--text-primary);
 }
 
-.accent {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-on-bg);
+
+
+
+.text-primary {
+  color: var(--text-primary);
 }
 
-.body-font {
+.text-secondary {
+  color: var(--text-secondary)
+}
+
+.text-title {
+  font-size: 2.75rem;
+}
+.text-h1 {
+  font-size: 1.95rem;
+}
+.text-h2 {
+  font-size: 1.55rem;
+}
+.text-h3 {
+  font-size: 1.25rem;
+}
+.text-p {
   font-family: 'Open Sans', sans-serif; 
-  font-size: 0.9rem;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+
+@media (max-width: 850px) {
+  .desktop-only {
+    display: none;
+  }
+  .text-title {
+    font-size: 2rem;
+  }
+  .text-h1 {
+    font-size: 1.7rem;
+  }
+  .text-h2 {
+    font-size: 1.2rem;
+  }
+  .text-h3 {
+    font-size: 1rem;
+  }
+  .text-p {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 851px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-areas: 
+    ". title ."
+    ". content .";
+  }
 }
 
 </style>
