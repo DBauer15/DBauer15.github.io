@@ -8,7 +8,9 @@
     <div style="grid-area: subtitle" class="text-h2 text-secondary" id="home-subtitle">Researcher at VIDI, UC Davis</div>
     <div style="grid-area: bio" class="text-p text-primary" v-html="CV.bio">
     </div>
+    <div style="grid-area: septop" class="home-seperator mobile-only"><hr></div>
     <Social style="grid-area: social" />
+    <div style="grid-area: sepbot" class="home-seperator mobile-only"><hr></div>
   </div>
 </template>
 
@@ -88,7 +90,7 @@ export default {
 @media (max-width: 850px) {
   .home-container {
     grid-template-columns: 1fr ;
-    grid-template-rows: 35px auto 3vh auto auto 20px auto 20px auto 20px;
+    grid-template-rows: 35px auto 3vh auto auto 30px auto 30px auto 20px;
     grid-gap: 10px 0;
     grid-template-areas: 
     "."
@@ -96,12 +98,27 @@ export default {
     "."
     "title"
     "subtitle"
-    "."
+    "septop"
     "social"
-    "."
+    "sepbot"
     "bio"
     "."
     ;
+  }
+
+  .home-seperator {
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .home-seperator > hr {
+    max-width: 85px;
+    width: 80%;
+    height: 0;
+    border: none;
+    border-top: 1px solid var(--text-secondary);
+    margin: 0 auto;
+    opacity: 0.3;
   }
 
   .portrait > img {
