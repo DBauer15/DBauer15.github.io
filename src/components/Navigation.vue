@@ -73,6 +73,7 @@ export default {
     }
 
     #navigation-menu {
+        display: none; /* TODO: Enable again */
         position: fixed;
         top: 0;
         left: 0;
