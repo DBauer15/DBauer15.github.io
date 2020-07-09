@@ -1,19 +1,24 @@
 <template>
-  <div id="app" class="app-container">
+  <div id="app">
+    <div id="navigation-menu" class="mobile-only">
+    </div>
+    <div class="app-container">
       <Title style="grid-area: title; position: sticky; top: 0;"/>
-      <Home style="grid-area: content"/>
+      <transition name="fade"
+        mode="out-in">
+        <router-view style="grid-area: content"/>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
 import Title from "./components/Title.vue"
-import Home from "./components/Home.vue"
 
 export default {
   name: 'App',
   components: {
     Title,
-    Home
   }
 }
 </script>
@@ -62,18 +67,22 @@ body {
 }
 
 a {
-    color: var(--text-primary);
+  text-decoration: none;
+  color: inherit;
+  transition: all .4s;
 }
-
+a:hover {
+  opacity: 0.55;
+}
 
 
 
 .text-primary {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .text-secondary {
-  color: var(--text-secondary)
+  color: var(--text-secondary) !important;
 }
 
 .text-title {
@@ -131,6 +140,19 @@ a {
     ". title ."
     ". content .";
   }
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 
 </style>

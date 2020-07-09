@@ -1,7 +1,7 @@
 <template>
   <div class="navigation-container">
       <div style="grid-area: edu" class="text-secondary text-h2 desktop-only">
-          Education
+          <router-link to="/education">Education</router-link>
       </div>
       <div style="grid-area: res" class="text-secondary text-h2 desktop-only">
           Research
@@ -12,7 +12,7 @@
       <div style="grid-area: ind" class="text-secondary text-h2 desktop-only">
           Industry
       </div>
-      <div style="grid-area: burger" class="mobile-only">
+      <div style="grid-area: burger" class="mobile-only" v-on:click="toggleMenu">
           <img src="/img/burger.svg" width="36px" />
       </div>
   </div>
@@ -20,7 +20,26 @@
 
 <script>
 export default {
-    name: 'Navigation'
+    name: 'Navigation',
+    data() {
+        return {
+            menuVisible: false,
+        }
+    },
+    methods: {
+        toggleMenu() {
+            //document.getElementById('navigation-menu').style.top = this.menuVisible ? '-100vh' : '0'
+            document.getElementById('navigation-menu').style.opacity = this.menuVisible ? '0' : '1'
+            let scrollYw = window.scrollY
+            let scrollYt = document.body.style.top;
+            document.body.style.position = this.menuVisible ? '' : 'fixed'
+            document.body.style.top = this.menuVisible ? '' : `-${scrollYw}px`
+            
+            if (this.menuVisible)
+                window.scrollTo(0, parseInt(scrollYt || '0') * -1);
+            this.menuVisible = !this.menuVisible
+        }
+    }
 }
 </script>
 
@@ -51,6 +70,18 @@ export default {
 
     .navigation-container > div {
         padding: 7px 0;
+    }
+
+    #navigation-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--background-translucent);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        transition: all .2s;
     }
 }
 </style>

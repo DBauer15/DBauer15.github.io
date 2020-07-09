@@ -1,10 +1,10 @@
 <template>
     <div class="title-container">
         <div class="text-primary text-h1 desktop-only" style="grid-area: name">
-            <a href="/">David Bauer</a>
+            <router-link to="/">David Bauer</router-link>
         </div>
         <div class="text-primary text-h1 mobile-only" style="grid-area: name">
-            <a href="/">DB</a>
+            <router-link to="/">DB</router-link>
         </div>
         <Navigation style="grid-area: nav; visibility: hidden;"/>
     </div>

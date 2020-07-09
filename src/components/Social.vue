@@ -8,7 +8,7 @@
           <a href="https://www.linkedin.com/in/david-bauer-5640471b2/" target="_blank">LinkedIn</a>
       </div>
       <div style="grid-area: mail" class="text-secondary text-h3">
-          davbauer (at) ucdavis.edu
+          <a href="mailto:davbauer@ucdavis.edu">davbauer at ucdavis.edu</a>
       </div>
   </div>
 </template>
