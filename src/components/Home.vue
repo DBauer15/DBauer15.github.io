@@ -1,8 +1,10 @@
 <template>
   <div class="home-container">
 
-    <div class="portrait" style="grid-area: img;">
+    <div class="portrait" style="grid-area: img; position: relative">
+          <img v-if="birthday" src="/img/hat.png" class="birthday-hat">
           <img src="/img/portrait.jpg" width="100%">
+          <div v-if="birthday" class="text-h2 text-secondary" style="text-align: center; margin-top: 20px;">It's my birthday!</div>
     </div>
     <div style="grid-area: title" class="text-title text-primary" id="home-title">Hi, I'm David!</div>
     <div style="grid-area: subtitle" class="text-h2 text-secondary" id="home-subtitle">Researcher at VIDI, UC Davis</div>
@@ -25,6 +27,11 @@ export default {
   data() {
     return {
       CV
+    }
+  },
+  computed: {
+    birthday() {
+      return (new Date()).getMonth()+1 == 6 && (new Date()).getDate() == 7
     }
   }
 }
@@ -53,6 +60,15 @@ export default {
 .portrait > img {
   border-radius: 320px;
   max-width: 320px;
+}
+
+.birthday-hat {
+  z-index: 100;
+  width: 150px;
+  position: absolute; 
+  top: -175px; 
+  left: 45%; 
+  transform: rotate(20deg);
 }
 
 @media (max-width: 1200px) {
@@ -123,6 +139,11 @@ export default {
 
   .portrait > img {
     max-width: 200px;
+  }
+
+  .birthday-hat {
+    width: 100px;
+    top: -100px;
   }
 
 }

@@ -29,6 +29,8 @@ export default {
     methods: {
         toggleMenu() {
             //document.getElementById('navigation-menu').style.top = this.menuVisible ? '-100vh' : '0'
+            if (!this.menuVisible)
+                document.getElementById('navigation-menu').style.display = 'block'
             document.getElementById('navigation-menu').style.opacity = this.menuVisible ? '0' : '1'
             let scrollYw = window.scrollY
             let scrollYt = document.body.style.top;
@@ -36,7 +38,9 @@ export default {
             document.body.style.top = this.menuVisible ? '' : `-${scrollYw}px`
             
             if (this.menuVisible)
-                window.scrollTo(0, parseInt(scrollYt || '0') * -1);
+                window.scrollTo(0, parseInt(scrollYt || '0') * -1)
+                document.getElementById('navigation-menu').style.display = 'none'
+
             this.menuVisible = !this.menuVisible
         }
     }

@@ -23,6 +23,7 @@ export default {
 <style>
 
 .title-container {
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 0.25fr 0.75fr;
     grid-template-areas: "name . nav";
