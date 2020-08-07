@@ -41,7 +41,7 @@ export default {
 .home-container {
   display: grid;
   grid-template-columns: 6fr 320px 100px minmax(570px, 35fr) 20fr;
-  grid-template-rows: 10vh auto auto auto 35px auto 35px;
+  grid-template-rows: 35px auto auto auto 35px auto 35px;
   grid-gap: 20px 0;
   grid-template-areas: 
   ". . . . ."
