@@ -98,8 +98,8 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                      <a href="" target=""
-                          class="external-link button is-normal is-rounded is-dark" disabled>
+                      <a href="https://github.com/DBauer15/gscache" target="_blank"
+                          class="external-link button is-normal is-rounded is-dark">
                           <span class="icon">
                               <i class="fab fa-github"></i>
                           </span>
@@ -160,12 +160,46 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+        <br>
+        <h1 class="title has-text-centered">Path-Space Representation</h1>
+        <img src="static/images/path_space_rendering.jpg"/>
+        <h3 class="subtitle has-text-centered">The path tracing integral can be characterized as the collection of all possible paths of all possible lengths. When combined, these paths form the final image. Based on this idea, we construct our cache as a hierarchy of cache levels where each level represents one path sub space and captures the radiance of all possible paths.</h3>
+        <img src="static/images/cache_sampling.jpg"/>
+        <h3 class="subtitle has-text-centered">Each level is represented by a set of 3D gaussians which we optimize with real-time radiance data gathered during rendering. In the pathtracer, sample paths are terminated early and the corresponding cache level is queried for radiance. The sampled radiance is attenuated and replaces the path's color value in the final image.</h3>
+      <br><br>
+        <h1 class="title has-text-centered">Real-Time Radiance Caching</h1>
+      <h4 class="subtitle has-text-centered">With our method, we are able to improve the image quality of real-time volume path tracing with little impact on rendering performance as we can see in this real-time comparison.</h4>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
-      <!-- <h2 class="subtitle has-text-centered">Our path-space cache improves image quality at low sample counts at comparable compute cost. We compare against a path tracer (PT) using uniform sampling and a version implementing next-even-estimation (NEE). Cache rendering time is constant, yielding increasing returns as sample counts increase. The method is non-invasive and easy to integrate into existing rendering applications.</h2> -->
+      <br>
+      <br><br>
+        <h1 class="title has-text-centered">Results</h1>
+        <h3 class="subtitle has-text-centered">The cache outperforms the baseline as well as previous approaches for real-time radiance caching.</h3>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <img src="static/images/qual2.jpg"/>
+        <h2 class="subtitle has-text-centered">Mechanical Hand Dataset</h2>
+     </div>
+      <div class="item">
+        <img src="static/images/qual1.jpg"/>
+        <h2 class="subtitle has-text-centered">FullBody Dataset</h2>
+      </div>
+      <div class="item">
+        <img src="static/images/qual4.jpg"/>
+        <h2 class="subtitle has-text-centered">Supernova Dataset</h2>
+      </div>
+       <div class="item">
+        <img src="static/images/qual0.jpg"/>
+        <h2 class="subtitle has-text-centered">Carp Dataset</h2>
+      </div>
+     <div class="item">
+      <img src="static/images/qual3.jpg"/>
+      <h2 class="subtitle has-text-centered">Spider Dataset</h2>
+    </div>
+  </div>
     </div>
   </div>
 </section>
